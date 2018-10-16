@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block page_title %}Django Auth Login Page{% endblock %}
+{% load bootstrap_tags %}
+{% block page_heading %}User Login{% endblock %}
+
+    {% block content %}
+    <form method="POST">
+        {% csrf_token %} {{ login_form | as_bootstrap}}
+        <button type="submit" class="btn btn-secondary">Login</button>
+    </form>
+    
+    <p>Forgot your password?<a href="{% url 'password_reset' %}"> Reset Password</a></p>
+    
+    {% endblock %}
+
